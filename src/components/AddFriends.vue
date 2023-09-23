@@ -2,7 +2,7 @@
   <header>
     <h1>Add Friends</h1>
   </header>
-  <form @submit.prevent="submitData">
+  <form v-if="hideForm" @submit.prevent="submitData">
     <div>
       <label for="name">Name:</label>
       <input type="text" name="name" id="name" v-model.trim="name" />
@@ -33,7 +33,8 @@ export default{
             email:'',
             phone:'',
             location:'',
-            friend:false
+            friend:false,
+            hideForm:true
         }
     },
     methods:{
@@ -60,7 +61,8 @@ export default{
                 this.email=''
                 this.phone=''
                 this.location=''
-                this.friend=true }
+                this.friend=true
+              this.hideForm=false }
 
         }
     }

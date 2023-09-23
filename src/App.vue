@@ -1,6 +1,6 @@
 <template>
-  <AddFriends></AddFriends>
-  <button @click="getFriends">Get friends</button>
+  <AddFriends></AddFriends><br>
+  <button class="get" @click="getFriends">Get friends</button>
   <br>
   <p v-if="loading">Loading..</p>
 
@@ -72,6 +72,9 @@ export default {
     margin-top: 10px;
     display: inline-block;
     font-weight: bold;
+  }
+  .get{
+    margin-left: 420px;
   }
 </style>
 
