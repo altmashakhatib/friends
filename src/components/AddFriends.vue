@@ -2,7 +2,7 @@
   <header>
     <h1>Add Friends</h1>
   </header>
-  <form v-if="hideForm" @submit.prevent="submitData">
+  <form  @submit.prevent="submitData">
     <div class="friend" :class="{invalid:friendName}">
       <label for="name">Name:</label>
       <input type="text" name="name" id="name" v-model.trim="name" @blur="nameTrue"  />
@@ -64,7 +64,10 @@ export default{
                 this.phone=''
                 this.location=''
                 this.friend=true
-              this.hideForm=false }
+                setTimeout(()=>{
+                  this.friend=false
+                },3000)
+              }
 
         },
         nameTrue(){
