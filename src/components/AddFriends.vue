@@ -3,9 +3,10 @@
     <h1>Add Friends</h1>
   </header>
   <form v-if="hideForm" @submit.prevent="submitData">
-    <div>
+    <div class="friend" :class="{invalid:friendName}">
       <label for="name">Name:</label>
-      <input type="text" name="name" id="name" v-model.trim="name" />
+      <input type="text" name="name" id="name" v-model.trim="name" @blur="nameTrue"  />
+      <p v-if="friendName">Note:Please Fill</p>
     </div>
     <div>
       <label for="email">Email:</label>
@@ -34,7 +35,8 @@ export default{
             phone:'',
             location:'',
             friend:false,
-            hideForm:true
+            hideForm:true,
+            friendName:false
         }
     },
     methods:{
@@ -64,6 +66,15 @@ export default{
                 this.friend=true
               this.hideForm=false }
 
+        },
+        nameTrue(){
+          if(this.name ===''){
+            this.friendName=true
+          }
+          else{this.friendName=false
+
+          }
+
         }
     }
 }
@@ -80,6 +91,9 @@ export default{
     background-color: #f0f0f0;
     padding: 10px;
     text-align: center;
+  }
+  p{
+    color: red;
   }
 
   h1 {
@@ -124,6 +138,9 @@ export default{
     font-weight: bold;
     margin-top: 10px;
     margin-left: 400px;
+  }
+  .friend.invalid input{
+    border: 1px solid red;
   }
 </style>
 
