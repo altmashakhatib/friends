@@ -1,6 +1,6 @@
 <template>
   <AddFriends></AddFriends>
-  <button @click="getFriends">Get Friends</button>
+  <button @click="getFriends">Get friends</button>
   <br>
   <p v-if="loading">Loading..</p>
 
